@@ -20,7 +20,7 @@ plugins {
   alias(libs.plugins.graalvmNative)
 }
 
-group = "com.seiama"
+group = "com.knockturnmc"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
@@ -32,7 +32,7 @@ indra {
     target(17)
   }
 
-  github("seiama", "javaducks") {
+  github("knockturnmc", "javaducks") {
     ci(true)
   }
   mitLicense()
@@ -52,7 +52,7 @@ spotless {
 
 jib {
   to {
-    image = "ghcr.io/seiama/javaducks"
+    image = "ghcr.io/knockturnmc/javaducks"
     tags = setOf(
       "latest",
       "${indraGit.branchName()}-${indraGit.commit()?.name()?.take(8)}-${Instant.now().epochSecond}"
