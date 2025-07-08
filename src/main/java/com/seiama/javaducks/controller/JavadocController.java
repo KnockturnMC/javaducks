@@ -82,7 +82,7 @@ public class JavadocController {
     this.configuration = configuration;
   }
 
-  @GetMapping("/{project:[a-z]+}/{version:[0-9.]+-?(?:pre|SNAPSHOT)?(?:[0-9.]+)?}")
+  @GetMapping("/{project:[a-z-]+}/{version:[0-9.]+-?(?:pre|SNAPSHOT)?(?:[0-9.]+)?}")
   @ResponseBody
   public ResponseEntity<?> redirectToPathWithTrailingSlash(
     final HttpServletRequest request,
@@ -94,7 +94,7 @@ public class JavadocController {
       .build();
   }
 
-  @GetMapping("/{project:[a-z]+}/{version:[0-9.]+-?(?:pre|SNAPSHOT)?(?:[0-9.]+)?}/**")
+  @GetMapping("/{project:[a-z-]+}/{version:[0-9.]+-?(?:pre|SNAPSHOT)?(?:[0-9.]+)?}/**")
   @ResponseBody
   public ResponseEntity<?> serveJavadocs(
     final HttpServletRequest request,
@@ -139,7 +139,7 @@ public class JavadocController {
       .build();
   }
 
-  @GetMapping("/{project:[a-z]+}/favicon.ico")
+  @GetMapping("/{project:[a-z-]+}/favicon.ico")
   @ResponseBody
   public ResponseEntity<?> serveFavicon(@PathVariable final String project) {
     final Path favicon = this.service.faviconFor(project);
@@ -156,7 +156,7 @@ public class JavadocController {
     }
   }
 
-  @GetMapping("/{project:[a-z]+}")
+  @GetMapping("/{project:[a-z-]+}")
   @ResponseBody
   public ResponseEntity<?> redirectToPathWithTrailingSlashServeLatestJavadoc(
     final HttpServletRequest request,
@@ -165,7 +165,7 @@ public class JavadocController {
     return this.serveLatestJavadoc(request, project);
   }
 
-  @GetMapping("/{project:[a-z]+}/**")
+  @GetMapping("/{project:[a-z-]+}/**")
   @ResponseBody
   public ResponseEntity<?> serveLatestJavadoc(
     final HttpServletRequest request,
