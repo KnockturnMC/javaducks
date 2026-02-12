@@ -228,7 +228,7 @@ public class JavadocService {
 
         // paper-api-1.12.2-R0.1-20190630.041412-412-javadoc.jar
         for (final MavenMetadata.Versioning.SnapshotVersion snapshot : metadata.versioning().snapshotVersions()) {
-          if (snapshot.classifier().equals("javadoc")) {
+          if ("javadoc".equals(snapshot.classifier())) {
             yield version.asset(String.format(
               "%s-%s-javadoc.jar",
               metadata.artifactId(),
