@@ -60,7 +60,7 @@ jib {
   }
 
   from {
-    image = "azul/zulu-openjdk-alpine:${indra.javaVersions().target().get()}-jre"
+    image = "amazoncorretto:27"
     platforms {
       // We can only build multi-arch images when pushing to a registry, not when building locally
       val requestedTasks = gradle.startParameter.taskNames
